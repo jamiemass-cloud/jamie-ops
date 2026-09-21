@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jamie Dixon | Chief of Staff &amp; Operations Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A2A3A;
+      --gold:   #B8935A;
+      --cream:  #F7F4F0;
+      --white:  #FFFFFF;
+      --gray:   #6B7280;
+      --light:  #EDE9E3;
+      --border: #DDD8D0;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 5%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 5% 5rem;
+      gap: 4rem;
+      background: var(--cream);
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-ghost {
+      color: var(--navy);
+      padding: 0.85rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); }
+
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 380px;
+      max-width: 100%;
+      aspect-ratio: 9/16;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--light);
+      position: relative;
+      box-shadow: 0 24px 64px rgba(26,42,58,0.12);
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 8%;
+    }
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.75rem;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+    .photo-placeholder .initials {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    /* ── STATS BAR ── */
+    #stats {
+      background: var(--navy);
+      padding: 2.5rem 5%;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.25rem;
+    }
+    .section-body {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-quote {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+    }
+    .about-bio p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about-bio p:last-child { margin-bottom: 0; }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+    .tag {
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--navy);
+      background: var(--cream);
+    }
+    .exp-list { list-style: none; }
+    .exp-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .exp-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .exp-co {
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .exp-date {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* ── WHO I WORK WITH ── */
+    #clients { background: var(--cream); }
+    .clients-inner { max-width: 1100px; margin: 0 auto; }
+    .clients-intro { margin-bottom: 3.5rem; }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .client-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .client-card:hover {
+      box-shadow: 0 8px 32px rgba(26,42,58,0.08);
+      transform: translateY(-2px);
+    }
+    .client-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .client-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .client-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+    .services-inner { max-width: 1100px; margin: 0 auto; }
+    .services-intro { margin-bottom: 1rem; }
+    .availability-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 3.5rem;
+    }
+    .availability-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #22C55E;
+    }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .tier-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+      background: var(--white);
+    }
+    .tier-card:hover {
+      box-shadow: 0 12px 40px rgba(26,42,58,0.1);
+      transform: translateY(-2px);
+    }
+    .tier-card.featured {
+      border-color: var(--navy);
+      box-shadow: 0 12px 40px rgba(26,42,58,0.12);
+    }
+    .tier-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tier-card.featured .tier-header {
+      background: var(--navy);
+    }
+    .tier-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .tier-card.featured .tier-badge { color: rgba(184,147,90,0.9); }
+    .tier-name {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .tier-card.featured .tier-name { color: var(--white); }
+    .tier-tagline {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .tier-card.featured .tier-tagline { color: rgba(255,255,255,0.65); }
+    .tier-price {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+    .price-amount {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .tier-card.featured .price-amount { color: var(--white); }
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .tier-card.featured .price-period { color: rgba(255,255,255,0.55); }
+    .tier-body { padding: 1.75rem 2rem 2rem; }
+    .tier-best-for {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.75rem;
+    }
+    .tier-for-text {
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .tier-features { list-style: none; margin-bottom: 2rem; }
+    .tier-features li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      font-size: 0.88rem;
+      color: var(--gray);
+      padding: 0.4rem 0;
+      line-height: 1.5;
+    }
+    .tier-features li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .tier-cta {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .tier-cta-ghost {
+      border: 1.5px solid var(--border);
+      color: var(--navy);
+    }
+    .tier-cta-ghost:hover { border-color: var(--navy); background: var(--cream); }
+    .tier-cta-solid {
+      background: var(--gold);
+      color: var(--white);
+      border: 1.5px solid var(--gold);
+    }
+    .tier-cta-solid:hover { background: #A0813D; border-color: #A0813D; }
+    .revenue-note {
+      margin-top: 3rem;
+      padding: 1.5rem 2rem;
+      background: var(--cream);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .revenue-note p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .revenue-note strong { color: var(--navy); }
+
+    /* ── HOW IT WORKS ── */
+    #process { background: var(--cream); }
+    .process-inner { max-width: 1100px; margin: 0 auto; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+      position: relative;
+    }
+    .step {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .step-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 0.65rem;
+    }
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--white); }
+    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+
+    .testimonials-slider {
+      position: relative;
+      margin-top: 3.5rem;
+      overflow: hidden;
+    }
+
+    .testimonials-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: relative;
+      /* Show 3 at once with gaps accounted for */
+      width: calc((100% - 3rem) / 3);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 900px) {
+      .testimonial-card { width: calc(100% - 0px); }
+    }
+    .quote-mark {
+      font-family: var(--serif);
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      color: var(--navy);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .testimonial-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .testimonial-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+    .testimonial-author {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+    .testimonial-author a {
+      color: var(--navy);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .testimonial-author a::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230A66C2'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+      flex-shrink: 0;
+      opacity: 0.8;
+    }
+    .testimonial-author a:hover { color: var(--gold); }
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.15rem;
+    }
+    .testimonial-avatar-initials {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      flex-shrink: 0;
+      border: 2px solid var(--border);
+    }
+
+    /* Slider controls */
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .slider-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--navy);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .slider-btn:hover { border-color: var(--navy); background: var(--cream); }
+    .slider-btn:disabled { opacity: 0.3; cursor: default; }
+    .slider-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .slider-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .slider-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ── CTA ── */
+    #contact {
+      background: var(--navy);
+      text-align: center;
+      padding: 7rem 5%;
+    }
+    #contact .section-label { color: rgba(184,147,90,0.9); }
+    #contact .section-title { color: var(--white); margin: 0 auto 1.25rem; }
+    #contact .section-body { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; }
+    .contact-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      padding: 1rem 2.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-gold:hover { background: #A0813D; transform: translateY(-1px); }
+    .btn-outline-white {
+      border: 1.5px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 1rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.7); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111820;
+      padding: 2.5rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding: 7rem 6% 4rem; gap: 3rem; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo { width: 280px; aspect-ratio: 1/1; border-radius: 50%; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .clients-grid { grid-template-columns: 1fr; }
+      .tiers-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Jamie Dixon</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#testimonials">Kind Words</a></li>
+      <li><a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" class="nav-cta">Work With Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Chief of Staff · Director of Operations · EA</span>
+      <h1 class="hero-h1">
+        The person who makes sure everything <em>actually</em> happens.
+      </h1>
+      <p class="hero-sub">
+        17 years of operational leadership for founders, executives, and UHNW principals.
+        I plug into your world, eliminate friction, and free you to focus on what only you can do.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">See How We Can Work Together</a>
+        <a href="#about" class="btn-ghost">About Jamie</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="Jamie%20Dixon%20Headshot%20copy.jpeg" alt="Jamie Dixon" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">17</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">$200M+</div>
+        <div class="stat-label">Transactions Overseen</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Industries Served</div>
+      </div>
+      <div>
+        <div class="stat-num">3 to 4</div>
+        <div class="stat-label">Clients at a Time</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-bio">
+        <div class="section-label">About</div>
+        <h2 class="section-title">Calm in the chaos.<br/>Clear on the details.</h2>
+        <blockquote class="about-quote">
+          "I thrive in environments that move fast, reward ownership, and need someone who can hold a lot of context without dropping threads."
+        </blockquote>
+        <p>
+          I'm Jamie, an operational leader who has spent 17 years working shoulder-to-shoulder with some of the most driven founders, executives, and private principals in the world. From Web3 startups to luxury real estate to global DeFi firms, I've been the person who takes what's in your head and makes it actually happen.
+        </p>
+        <p>
+          I grew up in Malibu, California and spent most of my life there before making the move to Portugal, where I now live and work. That shift gave me something I didn't expect: a real feel for operating across time zones, cultures, and contexts. My clients are based all over the world and it has never once slowed us down.
+        </p>
+        <p>
+          My background covers both the corporate and the deeply personal. I've run company-wide planning cycles and managed private residences across multiple countries for UHNW clients. That range means I genuinely understand what it costs when operations aren't working.
+        </p>
+        <p>
+          I'm discreet, obsessively organized, and honestly love the kind of problems that make most people want to look away. People tend to say my energy and attitude are infectious. I show up genuinely fired up, with a good attitude no matter what's on the plate, and it has a way of lifting the people around me too. If something is complicated, messy, or moving fast, that's exactly where I do my best work.
+        </p>
+        <div class="about-tags">
+
+          <span class="tag">Operational Planning</span>
+          <span class="tag">Hiring & Onboarding</span>
+          <span class="tag">International Logistics</span>
+          <span class="tag">Vendor Management</span>
+          <span class="tag">Systems Building</span>
+          <span class="tag">UHNW Principals</span>
+          <span class="tag">Estate Operations</span>
+          <span class="tag">Team Leadership</span>
+          <span class="tag">Executive Support</span>
+          <span class="tag">Discretion</span>
+          <span class="tag">Remote-First</span>
+        </div>
+      </div>
+      <div>
+        <ul class="exp-list">
+          <li class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Chief of Staff & Personal Assistant</div>
+              <div class="exp-co">Delphi Labs</div>
+              <div class="exp-date">January 2023 to Present · Remote</div>
+            </div>
+          </li>
+          <li class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Director of Operations, EA & PA to Co-Founder</div>
+              <div class="exp-co">FOMO (Web3 Experiential Startup)</div>
+              <div class="exp-date">November 2020 to January 2023 · Global Remote</div>
+            </div>
+          </li>
+          <li class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Director of Operations, EA & PA to CEO</div>
+              <div class="exp-co">Amalfi Estates, Luxury Real Estate</div>
+              <div class="exp-date">September 2018 to October 2020 · Pacific Palisades, CA</div>
+            </div>
+          </li>
+          <li class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Director of Operations / Estate Manager & PA</div>
+              <div class="exp-co">P. Chimento Company</div>
+              <div class="exp-date">September 2015 to September 2018 · Malibu, CA</div>
+            </div>
+          </li>
+          <li class="exp-item">
+            <div class="exp-dot"></div>
+            <div>
+              <div class="exp-title">Real Estate & Personal Assistant</div>
+              <div class="exp-co">Gibson International</div>
+              <div class="exp-date">January 2006 to September 2015 · Brentwood, CA</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO I WORK WITH -->
+  <section id="clients">
+    <div class="clients-inner">
+      <div class="clients-intro">
+        <div class="section-label">Who I Work With</div>
+        <h2 class="section-title">Built for leaders who<br/>can't afford a dropped thread.</h2>
+        <p class="section-body">I work with a small number of clients at a time, which means you get real focus, not a stretched VA who's managing 40 accounts.</p>
+      </div>
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-icon">🚀</div>
+          <div class="client-title">Startup Founders</div>
+          <p class="client-desc">Seed through Series B CEOs who are moving fast and need an operational right hand to keep the machine running. Hiring, systems, communications, and execution, while they stay focused on the mission.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-icon">🏢</div>
+          <div class="client-title">Executives & C-Suite</div>
+          <p class="client-desc">Senior leaders who need a trusted partner managing their time, inbox, and priorities. Someone who understands the weight of high-stakes decisions and can operate with absolute discretion.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-icon">🏗️</div>
+          <div class="client-title">Small Business Owners</div>
+          <p class="client-desc">Established business owners who are ready to stop being the bottleneck. I step in to build the operational infrastructure, including processes, vendors, and team management, that lets the business run without you in every detail.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-icon">⚡</div>
+          <div class="client-title">High-Output Solopreneurs</div>
+          <p class="client-desc">Consultants, investors, and creators who have outgrown their own capacity. I provide the operational leverage to multiply your output without multiplying your stress or hiring a full-time team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES / TIERS -->
+  <section id="services">
+    <div class="services-inner">
+      <div class="services-intro">
+        <div class="section-label">Services & Pricing</div>
+        <h2 class="section-title">Three ways to work together.</h2>
+        <p class="section-body">All engagements are monthly retainers. No hourly billing, no nickel-and-diming. You get a committed partner, not a contractor watching the clock.</p>
+      </div>
+      <div class="availability-note">
+        <span class="availability-dot"></span>
+        Currently accepting 2 to 3 new clients · Inquire to check availability
+      </div>
+      <div class="tiers-grid">
+
+        <!-- Fractional Director of Operations (most expensive) -->
+        <div class="tier-card featured">
+          <div class="tier-header">
+            <div class="tier-badge">Most Comprehensive</div>
+            <div class="tier-name">Fractional Director of Operations</div>
+            <div class="tier-tagline">Senior operational leadership, without the full-time hire.</div>
+            <div class="tier-price">
+              <span class="price-amount">$10,000</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <div class="tier-body">
+            <div class="tier-best-for">Best for</div>
+            <div class="tier-for-text">Companies that need an operational leader to build the infrastructure for growth, right now.</div>
+            <ul class="tier-features">
+              <li>Operational audit &amp; infrastructure design</li>
+              <li>Process design &amp; systems buildout</li>
+              <li>Strategic planning &amp; execution oversight</li>
+              <li>Team management &amp; performance tracking</li>
+              <li>Vendor &amp; contractor management</li>
+              <li>Multi-location &amp; international coordination</li>
+              <li>Weekly leadership sync &amp; dedicated access</li>
+            </ul>
+            <a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" class="tier-cta tier-cta-solid">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Chief of Staff -->
+        <div class="tier-card">
+          <div class="tier-header">
+            <div class="tier-badge">Chief of Staff</div>
+            <div class="tier-name">Chief of Staff</div>
+            <div class="tier-tagline">Operational coverage for leaders who need more than admin support.</div>
+            <div class="tier-price">
+              <span class="price-amount">$6,000</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <div class="tier-body">
+            <div class="tier-best-for">Best for</div>
+            <div class="tier-for-text">Founders and execs who need a trusted operational thought partner, not just task execution.</div>
+            <ul class="tier-features">
+              <li>Cross-functional project management</li>
+              <li>Meeting facilitation &amp; follow-through</li>
+              <li>Hiring support &amp; candidate coordination</li>
+              <li>Stakeholder &amp; investor communications</li>
+              <li>Team coordination &amp; accountability</li>
+              <li>Bi-weekly check-in sessions</li>
+              <li>Priority response SLA</li>
+            </ul>
+            <a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" class="tier-cta tier-cta-ghost">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Executive Assistant -->
+        <div class="tier-card">
+          <div class="tier-header">
+            <div class="tier-badge">Executive Assistant</div>
+            <div class="tier-name">Executive Assistant</div>
+            <div class="tier-tagline">High-touch administrative and logistical support so your day actually runs.</div>
+            <div class="tier-price">
+              <span class="price-amount">$3,000</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <div class="tier-body">
+            <div class="tier-best-for">Best for</div>
+            <div class="tier-for-text">Executives and founders who need a reliable, proactive EA, not just a scheduler.</div>
+            <ul class="tier-features">
+              <li>Calendar management &amp; scheduling</li>
+              <li>Email triage &amp; inbox management</li>
+              <li>Travel coordination &amp; logistics</li>
+              <li>Vendor &amp; contractor communication</li>
+              <li>Personal &amp; household coordination</li>
+              <li>Document &amp; expense management</li>
+              <li>Async support via Slack or email</li>
+            </ul>
+            <a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" class="tier-cta tier-cta-ghost">Get Started</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="revenue-note">
+        <p>
+          <strong>Not sure which tier fits?</strong> Most clients start with a discovery call to talk through where they're stuck and what support would actually move the needle. There's no pitch, just a straightforward conversation about whether we're a good fit. <a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: none; font-weight: 500;">Book a discovery call →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="process">
+    <div class="process-inner">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">Simple to start.<br/>Built for the long term.</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Discovery Call</div>
+          <p class="step-desc">We talk through what's working, what's not, and what operational support would genuinely unlock for you. No pressure, just a real conversation.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Custom Onboarding</div>
+          <p class="step-desc">I learn your world: your tools, preferences, priorities, and rhythms. We define scope, set up systems, and establish a communication cadence that works for you.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Ongoing Partnership</div>
+          <p class="step-desc">Month over month, I become more deeply embedded in how your business runs. The longer we work together, the more I can anticipate, and the more time you get back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-label">Kind Words</div>
+      <h2 class="section-title">What people say.</h2>
+
+      <div class="testimonials-slider">
+        <div class="testimonials-track" id="testimonials-track">
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">I've trusted Jamie with everything from operations and HR at OneThousandClub to managing my personal calendar, events, travel logistics, taxes, banking headaches, and countless life admin tasks. What makes her exceptional isn't just her ability to get things done quickly and flawlessly. It's the energy she brings while doing it. In a world increasingly powered by AI, Jamie's superpower is deeply human: she creates calm, clarity, and momentum wherever she steps in. She's one of the most reliable, proactive, and genuinely delightful operators I've ever worked with.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Mel%20Miles.png" alt="Mel Miles" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/mel-miles-11975b28/" target="_blank" rel="noopener">Mel Miles</a></div>
+                <div class="testimonial-role">Founder & CEO, OneThousandClub</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">The first word that comes to mind when I think of Jamie is "relentless." When things get difficult, most people slow down or lose the thread. Jamie does the opposite. She gets sharper. She has a way of moving a whole room to a decision. When something needs to get agreed on, she pulls everyone together and it actually gets done. If I were hiring someone to run ops, my first call would be to Jamie.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Darius%20Mora.jpeg" alt="Darius Mora" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/moravcik/" target="_blank" rel="noopener">Darius Mora</a></div>
+                <div class="testimonial-role">Founder, Mobile App Studio</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">Watching Jamie operate is mind-blowing. She effortlessly produces the output of at least three people. She is also absolutely reliable. If Jamie says she will take care of something, I know it will happen. She never drops the ball and somehow always has a clear overview even when things are chaotic and complex. Finding someone like her is one in a million.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Jan.png" alt="Jan Trautwein" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/jantrautwein/" target="_blank" rel="noopener">Jan Trautwein</a></div>
+                <div class="testimonial-role">Founder, Jan Trautwein Coaching</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">Jamie demonstrated an exceptional work ethic throughout her 9 years with me. She handled all aspects of my high-performance real estate business, including listing and escrow management, advertising, vendor coordination, and more. She demonstrates a high degree of diligence in all she does and will stop at nothing to do an impressive job. I recommend Jamie without reservation.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Nili%20Hudson.png" alt="Nili Hudson" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/nilihudson/" target="_blank" rel="noopener">Nili Hudson</a></div>
+                <div class="testimonial-role">Luxury Real Estate Advisor, Compass | Los Angeles</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">Jamie joined my team during COVID and immediately delivered in one of the toughest operating environments a startup could face. She secured appointments and made things happen when others couldn't. She stayed ahead of problems, kept the right information in front of me, and never needed to be chased or reminded. If you need someone who executes quickly and reliably, Jamie is that person.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Christian%20Bendixen.jpeg" alt="Christian Bendixen" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/c-bendixen/" target="_blank" rel="noopener">Christian Bendixen</a></div>
+                <div class="testimonial-role">Co-Founder &amp; CEO, Shielda | Fmr. Founder, FOMO</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">Jamie is one of the most organized, dependable people I've had the pleasure of working with. She has a natural instinct for how things should run. She came in, understood how we operated, and made everything more efficient without being asked. What stood out most was her attitude: she took pride in her work, showed up consistently, and handled complexity without complaint. I had complete confidence in her honesty and integrity throughout her time with us. She was a genuine asset to our team and I would not hesitate to recommend her.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Robert%20Chimento.jpeg" alt="Robert Chimento" />
+              <div>
+                <div class="testimonial-author">Robert Chimento</div>
+                <div class="testimonial-role">President & Principal, P. Chimento Co.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">Jamie is one of those rare people who turns complexity into movement. I have seen her step into situations where there were too many loose ends, too many people involved, and not enough clarity, and somehow create order, momentum, and accountability very quickly. She has a sharp operational mind, but also the emotional intelligence to understand people, read the room, and get things moving without unnecessary noise. What makes Jamie stand out is not only that she gets things done, but that she makes other people more effective around her. She follows through, anticipates problems, keeps a clear overview, and brings a level of energy and ownership that is genuinely hard to find. For anyone looking for a trusted EA, chief of staff, or operational right hand, Jamie would be an exceptional asset.</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Marco%20Headshot.jpeg" alt="Marco Antonio Caporale" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/marcoantoniocaporale/" target="_blank" rel="noopener">Marco Antonio Caporale</a></div>
+                <div class="testimonial-role">Co-Founder, Heima | Hospitality Entrepreneur</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <span class="quote-mark">"</span>
+            <p class="testimonial-text">I've never met someone who can balance 10 things at once from 7 different directions and still get it all done at an extremely high level. Jamie has a rare ability to hold the big picture and the tiny details at the same time, and she does so with energy and care, not just for the project at hand, but for the people behind it, too. She's an operational powerhouse and most importantly, a great human. If Jamie is leading something, I know it's in good hands!</p>
+            <div class="testimonial-footer">
+              <img class="testimonial-avatar" src="Headshots%20of%20Testimonials/Diara%20Parker.png" alt="Diara Parker" />
+              <div>
+                <div class="testimonial-author"><a href="https://www.linkedin.com/in/diaraparker/" target="_blank" rel="noopener">Diara Parker</a></div>
+                <div class="testimonial-role">Founder/CEO, coLiberate Ventures</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" id="slider-prev" aria-label="Previous">&#8592;</button>
+        <div class="slider-dots" id="slider-dots"></div>
+        <button class="slider-btn" id="slider-next" aria-label="Next">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const track = document.getElementById('testimonials-track');
+
+      // Shuffle cards randomly on each visit (Fisher-Yates)
+      const shuffled = [...track.querySelectorAll('.testimonial-card')];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      shuffled.forEach(c => track.appendChild(c));
+
+      const cards = track.querySelectorAll('.testimonial-card');
+      const dotsContainer = document.getElementById('slider-dots');
+      const prevBtn = document.getElementById('slider-prev');
+      const nextBtn = document.getElementById('slider-next');
+      const total = cards.length;
+      let current = 0;
+
+      // Build dots
+      cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      const visible = window.innerWidth <= 900 ? 1 : 3;
+      const maxIndex = Math.max(0, total - visible);
+
+      function goTo(index) {
+        current = Math.max(0, Math.min(index, maxIndex));
+        // Shift by one card width + gap (1.5rem = 24px)
+        const cardWidth = track.children[0].offsetWidth;
+        const gap = 24;
+        track.style.transform = `translateX(-${current * (cardWidth + gap)}px)`;
+        dotsContainer.querySelectorAll('.slider-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current >= maxIndex;
+      }
+
+      prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Touch / drag support
+      let startX = 0, dragging = false;
+      track.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; });
+      window.addEventListener('mouseup', e => {
+        if (!dragging) return; dragging = false;
+        const delta = e.clientX - startX;
+        if (delta < -50) goTo(current + 1);
+        else if (delta > 50) goTo(current - 1);
+      });
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive: true});
+      track.addEventListener('touchend', e => {
+        const delta = e.changedTouches[0].clientX - startX;
+        if (delta < -50) goTo(current + 1);
+        else if (delta > 50) goTo(current - 1);
+      });
+
+      goTo(0);
+    })();
+  </script>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="section-label">Let's Talk</div>
+    <h2 class="section-title" style="max-width: 600px;">Ready to stop being the bottleneck in your own business?</h2>
+    <p class="section-body" style="max-width: 520px;">
+      I take on a small number of clients at a time, so when I'm in, I'm really in. If you think we might be a fit, I'd love to hear what you're building.
+    </p>
+    <div class="contact-actions">
+      <a href="https://calendar.app.google/HuaEjFN2tXmRATW2A" target="_blank" rel="noopener" class="btn-gold">Book a Call</a>
+      <a href="https://linkedin.com/in/jamie-dixon-updates" target="_blank" rel="noopener" class="btn-outline-white">Connect on LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Jamie Dixon</div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="mailto:jamiemass@gmail.com">jamiemass@gmail.com</a></li>
+      <li><a href="https://linkedin.com/in/jamie-dixon-updates" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
